@@ -1,103 +1,43 @@
-import Image from "next/image";
+// src/app/cricket/page.tsx
 
-export default function Home() {
+export default function CricketPage() {
+  const facts = [
+    { title: "Origin", detail: "Cricket originated in England in the 16th century." },
+    { title: "Format", detail: "Main formats: Test, One Day International (ODI), and T20." },
+    { title: "World Cup", detail: "The ICC Cricket World Cup is held every 4 years." },
+    { title: "T20 Leagues", detail: "IPL, PSL, and Big Bash are the most famous T20 leagues." },
+    { title: "Famous Players", detail: "Legends include Sachin Tendulkar, Wasim Akram, and Ricky Ponting." },
+    { title: "Runs & Wickets", detail: "Runs are scored with the bat, while bowlers aim to take wickets." },
+    { title: "Longest Match", detail: "Test matches can last up to 5 days." },
+    { title: "Fastest Format", detail: "T20 is the fastest and most entertaining cricket format." },
+    { title: "Equipment", detail: "Bat, ball, stumps, gloves, and protective gear are essential." },
+    { title: "Spirit of the Game", detail: "Cricket is often called the 'Gentleman’s Game' due to its traditions." },
+  ];
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen bg-gradient-to-b from-green-900 to-black text-white py-12 px-6">
+      {/* Heading */}
+      <h1 className="text-4xl font-extrabold text-center mb-10">
+        🏏 Cricket – The Gentleman’s Game
+      </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      {/* Facts Grid */}
+      <section className="max-w-5xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {facts.map((fact, i) => (
+          <div
+            key={i}
+            className="bg-green-800/60 rounded-xl p-6 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+            <h2 className="text-xl font-bold text-yellow-300">{fact.title}</h2>
+            <p className="mt-2 text-gray-200">{fact.detail}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center mt-12 text-gray-400">
+        © {new Date().getFullYear()} Cricket Info | Made with ❤️
       </footer>
-    </div>
+    </main>
   );
 }
